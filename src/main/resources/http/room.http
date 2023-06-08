@@ -1,0 +1,34 @@
+GET http://localhost:8080/v1/room
+
+
+###
+POST http://localhost:8080/v1/room
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlbG1pcmExN0BnbWFpbC5jb20iLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXV0aCIsImV4cCI6MTY4NTUyNjczNiwicm9sZSI6IlVTRVIifQ.kX0sjdGhcGOooCisSp6mwhdjLlmk2_6WjBf0C6geJUM
+
+
+{
+  "name": "Яркий",
+  "description": "Яркий и славный",
+  "address": "Техническая, 13",
+  "city": "Казань",
+  "owner": {
+    "id": "7dfbe871-d8a3-47ea-850a-aacaee985b9d"
+  },
+  "roomOption": [
+    {
+      "name": "Автооплата"
+    }
+  ],
+  "roomType": "Бизнес"
+}
+
+
+###
+GET http://localhost:8080/v1/room/filter?owner=ca5bff7f-89ae-4983-add0-1c06c86b8370&status=ACTIVE&city=Казань
+
+
+
+
+
+

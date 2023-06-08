@@ -1,0 +1,18 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Главная</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+
+</head>
+<body>
+    <div th:include="header :: body"></div>
+    <a href="/user/registration">Начать работу</a>
+    <div th:text="${session?.SPRING_SECURITY_CONTEXT?.getAuthentication()?.getPrincipal()?.getUsername()}"></div>
+</body>
+</html>

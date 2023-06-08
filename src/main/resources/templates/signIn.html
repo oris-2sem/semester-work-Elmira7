@@ -1,0 +1,24 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Авторизация</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <link th:href="@{/css/sign.css}" rel="stylesheet"/>
+</head>
+<body>
+    <form class="auth_container" th:action="@{/user/login/perform}" th:object="${userSignRequest}" method="post">
+        <input type="text" name="email" th:field="*{email}" placeholder="Почта">
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+        <input type="password" name="password" th:field="*{password}" placeholder="Пароль">
+        <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+        <div id="errors" th:if="${(param.error != null)}">Неверный логин или пароль</div>
+        <button>Авторизация</button>
+        <a th:href="@{/user/registration}">Зарегистрироваться</a>
+    </form>
+</body>
+</html>

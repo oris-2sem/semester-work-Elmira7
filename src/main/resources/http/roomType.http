@@ -1,0 +1,22 @@
+GET http://localhost:8080/v1/room/type
+
+
+###
+POST http://localhost:8080/v1/room/type
+Content-Type: application/json
+
+
+{
+  "name": "Бизнес",
+  "description": "Помещения для осуществления бизнеса"
+}
+
+###
+POST http://localhost:8080/v1/room/type
+Content-Type: application/json
+
+
+{
+  "name": "Квартира",
+  "description": "Помещения для осуществления жизнедеятельности"
+}

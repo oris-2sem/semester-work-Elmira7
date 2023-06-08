@@ -1,0 +1,31 @@
+GET http://localhost:8080/v1/room/option
+
+###
+POST http://localhost:8080/v1/room/option
+Content-Type: application/json
+
+
+{
+  "name": "Автооплата",
+  "description": "Принимайте оплату автоматически прямо в сервисе"
+}
+
+###
+POST http://localhost:8080/v1/room/option
+Content-Type: application/json
+
+
+{
+  "name": "Уведомления",
+  "description": "Просматривайте новости прямо в сервисе или на почте"
+}
+
+###
+POST http://localhost:8080/v1/room/option
+Content-Type: application/json
+
+
+{
+  "name": "Обращения",
+  "description": "Получайте запросы от арендодателей"
+}

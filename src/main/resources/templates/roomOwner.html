@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${room?.name}">Объект</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <link th:href="@{/css/room.css}" rel="stylesheet"/>
+</head>
+<body>
+    <div th:include="header :: body"></div>
+    <main>
+        <div class="image"  th:style="'background-image: url(/file/' + ${room.imagePath} + ')'">
+            <div class="image__text" th:text="${room.name}"></div>
+        </div>
+        <div class="entity__info">
+            <div class="entity_bar">
+                <div>Собственники</div>
+                <a th:href="@{|/user/profile/${room.owner.id}|}" th:text="${room.owner.firstName}"></a>
+                <div>Арендаторы</div>
+                <div th:each="rent : ${renter}">
+                    <a th:href="@{|/user/profile/${rent.id}|}" th:text="${rent.firstName}"></a>
+                </div>
+                <a th:href="@{|/room/add/renter/${room.id}|}">Добавить арендатора</a>
+                <form th:action="@{|/room/${room.id}|}" method="delete">
+                    <button>Удалить помещение</button>
+                </form>
+            </div>
+            <div class="entity__main_info">
+                <div>Информация</div>
+                <div>Имя <b th:text="${room.name}"/></div>
+                <div>Адрес <b th:text="${room.address}"/></div>
+                <div>Описание <b th:text="${room.description}"/></div>
+                <div>Статус <b th:text="${room.status.toString()}"/></div>
+                <div>Размещено <b th:text="31.05.2023"/></div>
+            </div>
+            <div class="entity_bar">
+                <div>Новости</div>
+                <div th:each="news : ${notification}">
+                    <div th:text="${news.theme}"></div>
+                    <div th:text="${news.payload}"></div>
+                    <div th:text="${news.body}"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

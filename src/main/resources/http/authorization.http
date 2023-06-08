@@ -1,0 +1,16 @@
+POST http://localhost:8080/auth
+Content-Type: application/x-www-form-urlencoded
+
+
+email=marat55@gmail.com&password=marat55
+
+###
+
+POST http://localhost:8080/auth
+Content-Type: application/json
+
+
+{
+  "email": "elmira17@gmail.com",
+  "password": "Elmira17"
+}

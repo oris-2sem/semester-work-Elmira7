@@ -1,0 +1,26 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div class="nav__logo">
+            <div class="nav__logo__image"></div>RentRoom
+        </div>
+        <div class="nav__link__container">
+            <a th:href="@{/}" class="header__link">Главная</a>
+            <a th:href="@{/room/your}" class="header__link">Мониторинг</a>
+            <a th:href="@{/notification}" class="header__link">Новости</a>
+            <a th:href="@{/query}" class="header__link">Обращения</a>
+        </div>
+        <a class="nav__auth" th:href="@{/user/profile}" th:if="${session?.SPRING_SECURITY_CONTEXT != null}" >Профиль</a>
+        <a class="nav__auth" th:href="@{/user/login}" th:if="${session?.SPRING_SECURITY_CONTEXT == null}" >Войти</a>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Редактирование профиля</title>
+</head>
+<body>
+    <form style="display: flex; flex-direction: column" th:action="@{/user/profile/edit}" th:object="${userRequest}" method="post">
+        <input type="text" th:value="${user.firstName}" th:name="firstName" placeholder="Имя"  th:field="*{firstName}">
+        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Email Error</div>
+        <input type="text" th:value="${user.city}" placeholder="Город" th:field="*{city}">
+        <div th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City Error</div>
+        <button type="submit">Сохранить</button>
+    </form>
+</body>
+</html>

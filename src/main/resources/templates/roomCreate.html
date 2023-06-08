@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Добавление помещения</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <link th:href="@{/css/roomCreate.css}" rel="stylesheet"/>
+
+</head>
+<body>
+    <div th:include="header :: body"></div>
+    <form class="form_container" th:action="@{/room/add}" th:object="${roomRequest}" enctype="multipart/form-data" method="post">
+        Имя<input type="text" th:field="*{name}">
+        Город<input type="text" th:field="*{city}">
+        Адрес<input type="text" th:field="*{address}">
+        Описание<textarea th:field="*{description}"/>
+        Площадь<input type="text" th:field="*{square}">
+        Тип помещения<select th:field="*{roomType}">
+            <option th:each="type : ${typeRoom}" th:value="${type.name}" th:text="${type.name}"></option>
+        </select>
+        <input type="file" name="file">
+        <button>Добавить</button>
+    </form>
+</body>
+</html>

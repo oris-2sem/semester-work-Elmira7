@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    password: qwerty
+    username: postgres
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/postgres
+    driver-class-name: org.postgresql.Driver
+
+    hikari:
+      schema: sem_1
+      maximum-pool-size: 2
+
+  servlet:
+    multipart:
+      enabled: true
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+default:
+  secret: mysecret
